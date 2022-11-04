@@ -111,28 +111,32 @@ article {
     }
 }
 
-.author,
-.photographer {
+.author {
     text-transform: uppercase;
     font-size: 0.7em;
+    text-align: left;
     letter-spacing: 1px;
-    color: #777;
-    padding: 0 20px;
-    margin: 0;
+    color: white;
+    padding: 20px;
+    width: 40%;
+    margin: 20;
     font-family: "Oxygen", sans-serif;
+    background-color: black;
 }
 
-.author span,
-.photographer span {
-    color: rgba(0, 0, 0, 0.4);
+.author a {
+    color: gray;
+}
+
+.author span {
+    color: rgba(199, 199, 199);
     text-transform: capitalize;
 }
 
 @media (min-width: 700px) {
 
-    .author,
-    .photographer {
-        padding: 0 60px;
+    .author {
+        padding: 20px;
     }
 }
 
@@ -149,17 +153,6 @@ article {
     text-align: justify;
 }
 
-.text p:first-child {
-    margin-top: 0;
-}
-
-.text p:first-child:first-letter {
-    float: left;
-    color: red;
-    font-size: 4em;
-    line-height: 35px;
-    padding: 19px 10px 10px 0;
-}
 
 @media (min-width: 1100px) {
     .text {
@@ -178,7 +171,6 @@ footer {
     height: 30px;
     /* padding: 5px 10px; */
     margin: auto;
-    background: #FFF;
     display: inline-flex;
     overflow: hidden;
     unicode-bidi: bidi-override;
@@ -191,11 +183,13 @@ footer {
 
 
 /* - - - - - LIKE */
-#like {
+#like, #cheer, #acoustic {
     bottom: -65px;
 }
 
-#like:not(:checked)>label {
+#like:not(:checked)>label,
+#cheer:not(:checked)>label,
+#acoustic:not(:checked)>label {
     cursor: pointer;
     float: right;
     width: 30px;
@@ -208,7 +202,11 @@ footer {
 }
 
 #like:not(:checked)>label:hover,
-#like:not(:checked)>label:hover~label {
+#cheer:not(:checked)>label:hover,
+#acoustic:not(:checked)>label:hover,
+#like:not(:checked)>label:hover~label,
+#cheer:not(:checked)>label:hover~label,
+#acoustic:not(:checked)>label:hover~label {
     color: rgba(233, 54, 40, .6);
 }
 
@@ -216,10 +214,22 @@ footer {
 #like>input:checked+label:hover~label,
 #like>input:checked~label:hover,
 #like>input:checked~label:hover~label,
-#like>label:hover~input:checked~label {
+#like>label:hover~input:checked~label,
+#cheer>input:checked+label:hover,
+#cheer>input:checked+label:hover~label,
+#cheer>input:checked~label:hover,
+#cheer>input:checked~label:hover~label,
+#cheer>label:hover~input:checked~label,
+#acoustic>input:checked+label:hover,
+#acoustic>input:checked+label:hover~label,
+#acoustic>input:checked~label:hover,
+#acoustic>input:checked~label:hover~label,
+#acoustic>label:hover~input:checked~label {
     color: rgba(233, 54, 40, .8);
 }
 
-#like>input:checked~label {
+#like>input:checked~label,
+#cheer>input:checked~label,
+#acoustic>input:checked~label {
     color: rgb(233, 54, 40);
 }
