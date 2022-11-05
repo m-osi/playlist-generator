@@ -73,7 +73,7 @@ class Tokenize(BaseEstimator, TransformerMixin):
     def transform(self, X, y=None):
         all_lyrics = ' '.join(list(X[self.columns]))
         vocab = list(set(nltk.word_tokenize(all_lyrics)))
-        word_index = {vocab[i]: i for i in range(len(vocab))}
+        word_index = {vocab[i-1]: i for i in range(1, len(vocab)+1)}
         return word_index
 
 
