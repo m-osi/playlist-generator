@@ -1,5 +1,6 @@
 import pandas as pd
 from sklearn.pipeline import Pipeline
+from sklearn.neighbors import NearestNeighbors
 from create_pipe import (
     CleanText,
     Tokenize,
@@ -40,9 +41,16 @@ pipe = Pipeline(
     steps=[
         ("clean_text", CleanText(columns="lyric")),
         ("tokenize", Tokenize(columns=["lyric"])),
-        ("embed", Embed())
+        ("embed", Embed()),
+        (
+            "nn",
+            NearestNeighbors(
+                n_neighbors=4, 
+                algorithm='ball_tree', 
+                metric='euclidean')
+        ),
     ]
 )
 
 song_embeddings = pipe.fit(X=df, y=None)
-joblib.dump(pipe, r".\src\models\song-embeddings.pkl")
+joblib.dump(pipe, r".\src\models\lyrics-nn.pkl")

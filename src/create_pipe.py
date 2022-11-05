@@ -1,6 +1,5 @@
 from clean_text import clean_text
 from nltk.corpus import wordnet
-from sklearn.neighbors import NearestNeighbors
 from sklearn.base import BaseEstimator, TransformerMixin
 import pandas as pd
 import numpy as np
