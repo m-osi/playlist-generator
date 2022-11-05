@@ -1,9 +1,7 @@
-from nltk.stem import WordNetLemmatizer
-from src.clean_text import clean_text
+from clean_text import clean_text
+from nltk.corpus import wordnet
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.neighbors import NearestNeighbors
-from tensorflow.keras.preprocessing.text import Tokenizer
-from nltk.corpus import wordnet
 from sklearn.base import BaseEstimator, TransformerMixin
 import pandas as pd
 import numpy as np
@@ -14,8 +12,8 @@ nltk.download('wordnet')
 nltk.download('omw-1.4')
 nltk.download('averaged_perceptron_tagger')
 
-with zipfile.ZipFile('../data/glove/glove.6B.50d.zip', 'r') as zip_ref:
-    zip_ref.extractall('../data/glove')
+with zipfile.ZipFile('.\data\glove\glove.6B.50d.zip', 'r') as zip_ref:
+    zip_ref.extractall('.\data\glove')
 
 def embedding_for_vocab(filepath, word_index,
                         embedding_dim):
@@ -55,21 +53,20 @@ class Tokenize(BaseEstimator, TransformerMixin):
         return self
 
     def transform(self, X, y=None):
-        tokenizer = Tokenizer()
         all_lyrics = ' '.join(list(X[self.columns]))
-        vocab = set(nltk.word_tokenize(all_lyrics))
-        tokenizer.fit_on_texts(vocab)
-        return tokenizer.word_index
+        vocab = list(set(nltk.word_tokenize(all_lyrics)))
+        word_index = {vocab[i]:i for i in range(len(vocab))}
+        return word_index
 
 class Embed(BaseEstimator, TransformerMixin):
     def __init__(self):
-        return self
+        return None
 
     def fit(self, X, y=None):
         return self
 
     def transform(self, X, y=None):
         embedding_matrix_vocab = embedding_for_vocab(
-            '../data/glove/glove.6B.50d.txt', X,50)
+            '.\data\glove\glove.6B.50d.txt', X,50)
         return embedding_matrix_vocab
 
