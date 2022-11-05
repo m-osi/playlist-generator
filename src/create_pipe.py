@@ -1,0 +1,75 @@
+from nltk.stem import WordNetLemmatizer
+from src.clean_text import clean_text
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.neighbors import NearestNeighbors
+from tensorflow.keras.preprocessing.text import Tokenizer
+from nltk.corpus import wordnet
+from sklearn.base import BaseEstimator, TransformerMixin
+import pandas as pd
+import numpy as np
+import zipfile
+import nltk
+nltk.download('punkt')
+nltk.download('wordnet')
+nltk.download('omw-1.4')
+nltk.download('averaged_perceptron_tagger')
+
+with zipfile.ZipFile('../data/glove/glove.6B.50d.zip', 'r') as zip_ref:
+    zip_ref.extractall('../data/glove')
+
+def embedding_for_vocab(filepath, word_index,
+                        embedding_dim):
+    vocab_size = len(word_index) + 1
+      
+    # Adding again 1 because of reserved 0 index
+    embedding_matrix_vocab = np.zeros((vocab_size,
+                                       embedding_dim))
+  
+    with open(filepath, encoding="utf8") as f:
+        for line in f:
+            word, *vector = line.split()
+            if word in word_index:
+                idx = word_index[word]
+                embedding_matrix_vocab[idx] = np.array(
+                    vector, dtype=np.float32)[:embedding_dim]
+  
+    return embedding_matrix_vocab
+
+class CleanText(BaseEstimator, TransformerMixin):
+    def __init__(self, columns=None):
+        self.columns = columns
+
+    def fit(self, X, y=None):
+        return self
+
+    def transform(self, X, y=None):
+        X[self.columns] = X[self.columns].apply(clean_text)
+        return X
+
+
+class Tokenize(BaseEstimator, TransformerMixin):
+    def __init__(self, columns=None):
+        self.columns = columns
+
+    def fit(self, X, y=None):
+        return self
+
+    def transform(self, X, y=None):
+        tokenizer = Tokenizer()
+        all_lyrics = ' '.join(list(X[self.columns]))
+        vocab = set(nltk.word_tokenize(all_lyrics))
+        tokenizer.fit_on_texts(vocab)
+        return tokenizer.word_index
+
+class Embed(BaseEstimator, TransformerMixin):
+    def __init__(self):
+        return self
+
+    def fit(self, X, y=None):
+        return self
+
+    def transform(self, X, y=None):
+        embedding_matrix_vocab = embedding_for_vocab(
+            './glove.6B.50d.txt', X,50)
+        return embedding_matrix_vocab
+
