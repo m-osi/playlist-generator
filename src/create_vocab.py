@@ -32,8 +32,7 @@ df = pd.concat([df, midnights], axis = 0)
 clean = CleanText(columns='lyric')
 df = clean.transform(df)
 tokenize = Tokenize(columns='lyric')
-df = tokenize.transform(df)
-vocab = tokenize.vocab
+vocab = tokenize.transform(df)
 
 
 # saving the master dataset
