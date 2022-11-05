@@ -70,6 +70,6 @@ class Embed(BaseEstimator, TransformerMixin):
 
     def transform(self, X, y=None):
         embedding_matrix_vocab = embedding_for_vocab(
-            './glove.6B.50d.txt', X,50)
+            '../data/glove/glove.6B.50d.txt', X,50)
         return embedding_matrix_vocab
 
