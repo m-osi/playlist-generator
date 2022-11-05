@@ -8,9 +8,11 @@ nltk.download('punkt')
 nltk.download('wordnet')
 nltk.download('omw-1.4')
 nltk.download('averaged_perceptron_tagger')
+nltk.download('stopwords')
 
 from nltk.stem import WordNetLemmatizer 
 from nltk.corpus import wordnet
+from nltk.corpus import stopwords
 
 lemmatizer = WordNetLemmatizer()
 
@@ -44,6 +46,9 @@ def clean_text(text):
     text = text.lower()
     #get rid of any other unwanted elements
     text = text.replace("\u2005", " ")
+    #remove stop words
+    translate_table = dict((char, None) for char in stopwords.words('english')) 
+    text = text.translate(translate_table)
     #lemmatize
     text = lemmatize(text)
     return text
