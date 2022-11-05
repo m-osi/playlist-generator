@@ -46,4 +46,5 @@ def clean_text(text):
     text = text.replace("\u2005", " ")
     #lemmatize
     text = lemmatize(text)
+    return text
 
