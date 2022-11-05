@@ -1,5 +1,5 @@
 import pandas as pd
-from clean_text import clean_text
+from sklearn.feature_extraction.text import TfidfVectorizer
 from create_pipe import CleanText
 import joblib
 
@@ -38,6 +38,23 @@ grouped = df[[
 grouped['lyric'] = grouped['lyric'].apply(
     lambda x: ' '.join(x))
 
+# get tf-idf of words for songs
+vectorizer = TfidfVectorizer(
+    analyzer='word', 
+    stop_words=None,
+    ngram_range = (1,1), 
+    use_idf=True, 
+    smooth_idf=True
+    )
+
+tfidf_matrix  = vectorizer.fit_transform(grouped['lyric'].tolist() )
+tfidf_features = sorted(vectorizer.get_feature_names())
+df_tfidf = pd.DataFrame(
+    data = tfidf_matrix.toarray(),index = range(
+        len(grouped)),columns = tfidf_features)
+result = pd.concat(
+    [grouped, df_tfidf], axis=1, join="inner")
+
 # creating spotify metadata dataset
 
 metadata = pd.read_csv(r'.\data\spotify\spotify_taylorswift.csv')
@@ -60,7 +77,7 @@ final_metadata = final_metadata[[
 
 final = pd.merge(
     final_metadata,
-    grouped,
+    result,
     how="inner",
     on=None,
     left_on="name",
