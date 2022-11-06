@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='results.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:wght@900&|Open+Sans:300,700" rel="stylesheet">
+</head>
+
+<div class="results">
+    {% for x in playlist %}
+    <p>{{x}}</p>
+    {% endfor %}
+</div>

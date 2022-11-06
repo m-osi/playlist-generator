@@ -1,0 +1,16 @@
+body {
+    background-image: url("img/results-bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: #222;
+    color:white;
+}
+
+.results {
+    font-size: 3.9vw;
+    margin-left: 4em;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
