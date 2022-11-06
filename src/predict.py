@@ -47,6 +47,7 @@ def get_top_words(n_count, embedding, dataset):
 
 
 def predict(example, vectors):
+    example = example.lower()
     embedding = get_embedding(example)
     top_words = get_top_words(n_count=4, embedding=embedding, dataset=song_embeddings)
     features = STATIC_FEATURES + top_words
