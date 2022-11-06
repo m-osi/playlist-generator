@@ -41,126 +41,33 @@
             </ul>
 
             <div class="author">
-                <p>I want something...</p>
+                <p><b>I want something...</b></p>
+                <form name="questionnaire" method="POST" onsubmit="return validateForm()">
                 <span>to dance to:
-                    <!-- LIKE -->
-                    <section id="like" class="rating">
-                        <!-- EIGHTH HEART -->
-                        <input type="radio" id="dance_10" name="like" value="10" />
-                        <label for="dance_10" title="Ten">&#10084;</label>
-                        <!-- NINTH HEART -->
-                        <input type="radio" id="dance_9" name="like" value="9" />
-                        <label for="dance_9" title="Nine">&#10084;</label>
-                        <!-- EIGHTH HEART -->
-                        <input type="radio" id="dance_8" name="like" value="8" />
-                        <label for="dance_8" title="Eight">&#10084;</label>
-                        <!-- SEVENTH HEART -->
-                        <input type="radio" id="dance_7" name="like" value="7" />
-                        <label for="dance_7" title="Seven">&#10084;</label>
-                        <!-- SIXTH HEART -->
-                        <input type="radio" id="dance_6" name="like" value="6" />
-                        <label for="dance_6" title="Six">&#10084;</label>
-                        <!-- FIFTH HEART -->
-                        <input type="radio" id="dance_5" name="like" value="5" />
-                        <label for="dance_5" title="Five">&#10084;</label>
-                        <!-- FOURTH HEART -->
-                        <input type="radio" id="dance_4" name="like" value="4" />
-                        <label for="dance_4" title="Four">&#10084;</label>
-                        <!-- THIRD HEART -->
-                        <input type="radio" id="dance_3" name="like" value="3" />
-                        <label for="dance_3" title="Three">&#10084;</label>
-                        <!-- SECOND HEART -->
-                        <input type="radio" id="dance_2" name="like" value="2" />
-                        <label for="dance_2" title="Two">&#10084;</label>
-                        <!-- FIRST HEART -->
-                        <input type="radio" id="dance_1" name="like" value="1" />
-                        <label for="dance_1" title="One">&#10084;</label>
-                    </section>
+                    <input type="number" min="0" max="10" step="1" value="0" name="dance">
                 </span>
                 <br>
                 <span>to cheer me up:
-                    <!-- LIKE -->
-                    <section id="cheer" class="rating">
-                        <!-- EIGHTH HEART -->
-                        <input type="radio" id="cheer_10" name="cheer" value="10" />
-                        <label for="cheer_10" title="Ten">&#10084;</label>
-                        <!-- NINTH HEART -->
-                        <input type="radio" id="cheer_9" name="cheer" value="9" />
-                        <label for="cheer_9" title="Nine">&#10084;</label>
-                        <!-- EIGHTH HEART -->
-                        <input type="radio" id="cheer_8" name="cheer" value="8" />
-                        <label for="cheer_8" title="Eight">&#10084;</label>
-                        <!-- SEVENTH HEART -->
-                        <input type="radio" id="cheer_7" name="cheer" value="7" />
-                        <label for="cheer_7" title="Seven">&#10084;</label>
-                        <!-- SIXTH HEART -->
-                        <input type="radio" id="cheer_6" name="cheer" value="6" />
-                        <label for="cheer_6" title="Six">&#10084;</label>
-                        <!-- FIFTH HEART -->
-                        <input type="radio" id="cheer_5" name="cheer" value="5" />
-                        <label for="cheer_5" title="Five">&#10084;</label>
-                        <!-- FOURTH HEART -->
-                        <input type="radio" id="cheer_4" name="cheer" value="4" />
-                        <label for="cheer_4" title="Four">&#10084;</label>
-                        <!-- THIRD HEART -->
-                        <input type="radio" id="cheer_3" name="cheer" value="3" />
-                        <label for="cheer_3" title="Three">&#10084;</label>
-                        <!-- SECOND HEART -->
-                        <input type="radio" id="cheer_2" name="cheer" value="2" />
-                        <label for="cheer_2" title="Two">&#10084;</label>
-                        <!-- FIRST HEART -->
-                        <input type="radio" id="cheer_1" name="cheer" value="1" />
-                        <label for="cheer_1" title="One">&#10084;</label>
-                    </section>
+                    <input type="number" min="0" max="10" step="1" value="0" name="cheer">
                 </span>
                 <br>
                 <span>with an acoustic vibe:
-                    <!-- LIKE -->
-                    <section id="acoustic" class="rating">
-                        <!-- EIGHTH HEART -->
-                        <input type="radio" id="acoustic_10" name="acoustic" value="10" />
-                        <label for="acoustic_10" title="Ten">&#10084;</label>
-                        <!-- NINTH HEART -->
-                        <input type="radio" id="acoustic_9" name="acoustic" value="9" />
-                        <label for="acoustic_9" title="Nine">&#10084;</label>
-                        <!-- EIGHTH HEART -->
-                        <input type="radio" id="acoustic_8" name="acoustic" value="8" />
-                        <label for="acoustic_8" title="Eight">&#10084;</label>
-                        <!-- SEVENTH HEART -->
-                        <input type="radio" id="acoustic_7" name="acoustic" value="7" />
-                        <label for="acoustic_7" title="Seven">&#10084;</label>
-                        <!-- SIXTH HEART -->
-                        <input type="radio" id="acoustic_6" name="acoustic" value="6" />
-                        <label for="acoustic_6" title="Six">&#10084;</label>
-                        <!-- FIFTH HEART -->
-                        <input type="radio" id="acoustic_5" name="acoustic" value="5" />
-                        <label for="acoustic_5" title="Five">&#10084;</label>
-                        <!-- FOURTH HEART -->
-                        <input type="radio" id="acoustic_4" name="acoustic" value="4" />
-                        <label for="acoustic_4" title="Four">&#10084;</label>
-                        <!-- THIRD HEART -->
-                        <input type="radio" id="acoustic_3" name="acoustic" value="3" />
-                        <label for="acoustic_3" title="Three">&#10084;</label>
-                        <!-- SECOND HEART -->
-                        <input type="radio" id="acoustic_2" name="acoustic" value="2" />
-                        <label for="acoustic_2" title="Two">&#10084;</label>
-                        <!-- FIRST HEART -->
-                        <input type="radio" id="acoustic_1" name="acoustic" value="1" />
-                        <label for="acoustic_1" title="One">&#10084;</label>
-                    </section>
+                    <input type="number" min="0" max="10" step="1" value="0" name="acoustic">
                 </span>
                 <br>
                 <span>
                     Main lyrics theme:
-                    <input type="text" class="inp" id="lyrics">
+                    <input type="text" class="inp" name="lyrics">
 
                 </span><br><br>
                 <span>(optional) <a href="https://www.youtube.com/watch?v=Ts3UAJcGeRI">Enable rap
                         mode</a></span><br><br>
-                <button>Submit</button>
+                <center><button>Submit</button></center>
+            </form>
             </div>
+            <div class="results"></div>
         </div>
-
+        <script src="{{ url_for('static', filename='script.js') }}" type="text/javascript"></script>
     </article>
 </div>
 <footer></footer>
