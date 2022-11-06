@@ -2,6 +2,7 @@ import joblib
 from create_pipe import embedding_for_vocab
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.neighbors import NearestNeighbors
+import numpy as np
 
 # load pickled files
 final = joblib.load(r".\data\master.pkl")
@@ -25,6 +26,9 @@ def get_embedding(word, embedding_path=r".\data\glove\glove.6B.50d.txt"):
     word_dict = {word: 1}
     embedding = embedding_for_vocab(
         embedding_path,word_dict,50)
+    if np.all(embedding[1]==0):
+        message = f"Main lyrics theme not supported"
+        raise Exception(message)
     return embedding
 
 def get_top_words(n_count, embedding, dataset):
@@ -46,7 +50,11 @@ def predict(example, vectors):
     embedding = get_embedding(example)
     top_words = get_top_words(n_count=4, embedding=embedding, dataset=song_embeddings)
     features = STATIC_FEATURES + top_words
-    with_words = final[features]
+    try:
+        with_words = final[features]
+    except Exception:
+        message = f"Main lyrics theme not supported"
+        raise Exception(message)
     with_words['word_mean'] = 0.6 * with_words.iloc[:, 3] \
         + 0.2 * with_words.iloc[:, 4] \
             + 0.15 * with_words.iloc[:, 5] \
