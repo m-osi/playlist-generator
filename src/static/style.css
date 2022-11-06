@@ -17,9 +17,7 @@ body {
 
 aside {
     background-image: url("img/bg.jpg");
-    /* max-height: 100%;
-    max-width: 100%; */
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-color: #222;
@@ -132,7 +130,7 @@ article {
 }
 
 .author button {
-    background-color:black;
+    background-color: black;
     color: white;
     padding: 10px;
     text-transform: uppercase;
@@ -188,10 +186,7 @@ footer {
 
 
 input {
-    margin:5px;
+    margin: 5px;
     border: 1px solid black;
-    padding:5px;
+    padding: 5px;
 }
-
-
-  
