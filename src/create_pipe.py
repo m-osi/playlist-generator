@@ -1,4 +1,4 @@
-from clean_text import clean_text
+from src.clean_text import clean_text
 from nltk.corpus import wordnet
 from sklearn.base import BaseEstimator, TransformerMixin
 import pandas as pd

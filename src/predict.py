@@ -1,5 +1,5 @@
 import joblib
-from create_pipe import embedding_for_vocab
+from src.create_pipe import embedding_for_vocab
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.neighbors import NearestNeighbors
 import numpy as np
