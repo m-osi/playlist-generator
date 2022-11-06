@@ -5,10 +5,10 @@ import pandas as pd
 import numpy as np
 import zipfile
 import nltk
-nltk.download('punkt')
-nltk.download('wordnet')
-nltk.download('omw-1.4')
-nltk.download('averaged_perceptron_tagger')
+# nltk.download('punkt')
+# nltk.download('wordnet')
+# nltk.download('omw-1.4')
+# nltk.download('averaged_perceptron_tagger')
 
 with zipfile.ZipFile('.\data\glove\glove.6B.50d.zip', 'r') as zip_ref:
     zip_ref.extractall('.\data\glove')
