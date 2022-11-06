@@ -10,8 +10,8 @@ import nltk
 # nltk.download('omw-1.4')
 # nltk.download('averaged_perceptron_tagger')
 
-with zipfile.ZipFile('.\data\glove\glove.6B.50d.zip', 'r') as zip_ref:
-    zip_ref.extractall('.\data\glove')
+with zipfile.ZipFile('./data/glove/glove.6B.50d.zip', 'r') as zip_ref:
+    zip_ref.extractall('./data/glove')
 
 
 def embedding_for_vocab(filepath, word_index,
@@ -86,5 +86,5 @@ class Embed(BaseEstimator, TransformerMixin):
 
     def transform(self, X, y=None):
         embedding_matrix_vocab = embedding_for_vocab(
-            '.\data\glove\glove.6B.50d.txt', X, 50)
+            './data/glove/glove.6B.50d.txt', X, 50)
         return embedding_matrix_vocab

@@ -5,16 +5,16 @@ import joblib
 
 #creating lyrics dataset
 
-folklore = pd.read_csv(r'.\data\lyrics\08-folklore_deluxe_version.csv')
-evermore = pd.read_csv(r'.\data\lyrics\09-evermore_deluxe_version.csv')
-lover = pd.read_csv(r'.\data\lyrics\07-lover.csv')
-reputation = pd.read_csv(r'.\data\lyrics\06-reputation.csv')
-the1989 = pd.read_csv(r'.\data\lyrics\05-1989_deluxe.csv')
-red = pd.read_csv(r'.\data\lyrics\04-red_deluxe_edition.csv')
-speak = pd.read_csv(r'.\data\lyrics\03-speak_now_deluxe_package.csv')
-fearless = pd.read_csv(r'.\data\lyrics\02-fearless_taylors_version.csv')
-taylor = pd.read_csv(r'.\data\lyrics\01-taylor_swift.csv')
-midnights = pd.read_csv(r'.\data\lyrics\10-midnights.csv', sep=';')
+folklore = pd.read_csv(r'./data/lyrics/08-folklore_deluxe_version.csv')
+evermore = pd.read_csv(r'./data/lyrics/09-evermore_deluxe_version.csv')
+lover = pd.read_csv(r'./data/lyrics/07-lover.csv')
+reputation = pd.read_csv(r'./data/lyrics/06-reputation.csv')
+the1989 = pd.read_csv(r'./data/lyrics/05-1989_deluxe.csv')
+red = pd.read_csv(r'./data/lyrics/04-red_deluxe_edition.csv')
+speak = pd.read_csv(r'./data/lyrics/03-speak_now_deluxe_package.csv')
+fearless = pd.read_csv(r'./data/lyrics/02-fearless_taylors_version.csv')
+taylor = pd.read_csv(r'./data/lyrics/01-taylor_swift.csv')
+midnights = pd.read_csv(r'./data/lyrics/10-midnights.csv', sep=';')
 
 df = pd.concat([
     folklore, 
@@ -57,11 +57,11 @@ result = pd.concat(
 
 # creating spotify metadata dataset
 
-metadata = pd.read_csv(r'.\data\spotify\spotify_taylorswift.csv')
+metadata = pd.read_csv(r'./data/spotify/spotify_taylorswift.csv')
 metadata = metadata[
     ['name', 'danceability', 'acousticness', 
     'energy', 'liveness', 'valence']]
-metadata_mid = pd.read_csv(r'.\data\spotify\midnights-spotify.csv')
+metadata_mid = pd.read_csv(r'./data/spotify/midnights-spotify.csv')
 final_metadata = pd.concat([metadata, metadata_mid], axis=0)
 final_metadata['dance'] = 0.5 * final_metadata[
     'danceability'] + 0.25 * final_metadata[
@@ -93,4 +93,4 @@ final = pd.merge(
 
 # saving the master dataset
 
-joblib.dump(final, r".\data\master.pkl")
+joblib.dump(final, r"./data/master.pkl")

@@ -5,9 +5,9 @@ from sklearn.neighbors import NearestNeighbors
 import numpy as np
 
 # load pickled files
-final = joblib.load(r".\data\master.pkl")
-vocab = joblib.load(r".\data\vocab.pkl")
-song_embeddings = joblib.load(r".\data\embeddings.pkl")
+final = joblib.load(r"./data/master.pkl")
+vocab = joblib.load(r"./data/vocab.pkl")
+song_embeddings = joblib.load(r"./data/embeddings.pkl")
 
 STATIC_FEATURES = ['dance_x', 'acousticness', 'valence']
 
@@ -22,7 +22,7 @@ def get_neighbors(n_count, dataset, feature):
 def common_elements(list1, list2):
     return [element for element in list1 if element in list2]
 
-def get_embedding(word, embedding_path=r".\data\glove\glove.6B.50d.txt"):
+def get_embedding(word, embedding_path=r"./data/glove/glove.6B.50d.txt"):
     word_dict = {word: 1}
     embedding = embedding_for_vocab(
         embedding_path,word_dict,50)
