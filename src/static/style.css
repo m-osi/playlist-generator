@@ -116,12 +116,11 @@ article {
     font-size: 0.7em;
     text-align: left;
     letter-spacing: 1px;
-    color: white;
+    color: black;
     padding: 20px;
-    width: 40%;
+    width: 90%;
     margin: 20;
-    font-family: "Oxygen", sans-serif;
-    background-color: black;
+    border: 1px solid black;
 }
 
 .author a {
@@ -129,8 +128,14 @@ article {
 }
 
 .author span {
-    color: rgba(199, 199, 199);
     text-transform: capitalize;
+}
+
+.author button {
+    background-color:black;
+    color: white;
+    padding: 10px;
+    text-transform: uppercase;
 }
 
 @media (min-width: 700px) {
@@ -182,54 +187,11 @@ footer {
 }
 
 
-/* - - - - - LIKE */
-#like, #cheer, #acoustic {
-    bottom: -65px;
+input {
+    margin:5px;
+    border: 1px solid black;
+    padding:5px;
 }
 
-#like:not(:checked)>label,
-#cheer:not(:checked)>label,
-#acoustic:not(:checked)>label {
-    cursor: pointer;
-    float: right;
-    width: 30px;
-    height: 30px;
-    display: block;
 
-    color: rgba(233, 54, 40, .4);
-    line-height: 33px;
-    text-align: center;
-}
-
-#like:not(:checked)>label:hover,
-#cheer:not(:checked)>label:hover,
-#acoustic:not(:checked)>label:hover,
-#like:not(:checked)>label:hover~label,
-#cheer:not(:checked)>label:hover~label,
-#acoustic:not(:checked)>label:hover~label {
-    color: rgba(233, 54, 40, .6);
-}
-
-#like>input:checked+label:hover,
-#like>input:checked+label:hover~label,
-#like>input:checked~label:hover,
-#like>input:checked~label:hover~label,
-#like>label:hover~input:checked~label,
-#cheer>input:checked+label:hover,
-#cheer>input:checked+label:hover~label,
-#cheer>input:checked~label:hover,
-#cheer>input:checked~label:hover~label,
-#cheer>label:hover~input:checked~label,
-#acoustic>input:checked+label:hover,
-#acoustic>input:checked+label:hover~label,
-#acoustic>input:checked~label:hover,
-#acoustic>input:checked~label:hover~label,
-#acoustic>label:hover~input:checked~label {
-    color: rgba(233, 54, 40, .8);
-}
-
-#like>input:checked~label,
-#cheer>input:checked~label,
-#acoustic>input:checked~label {
-    color: rgb(233, 54, 40);
-}
+  
