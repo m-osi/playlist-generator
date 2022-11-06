@@ -19,7 +19,7 @@ aside {
     background-image: url("img/bg.jpg");
     /* max-height: 100%;
     max-width: 100%; */
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-color: #222;
