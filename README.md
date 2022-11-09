@@ -15,8 +15,8 @@ Ever wanted to create a Taylor Swift playlist with the help of machine learning?
 - **Data** - the datasets consist of: lyrics and Spotify metadata files for all albums up to and including *evermore* downloaded from Kaggle, and additional *Midnights* lyrics and Spotify metadata files created by me. 
 - **Algorithm** - all lyrics were preprocessed and transformed into GloVe embeddings. Additionally, TF-IDF was calculated for all word tokens for each song. Top 4 theme words are chosen by KNN algorithm based on the main lyrics theme keyword provided by the user. Then, one word feature is calculated for each song based on the TF-IDF scores of the top 4 theme words. Finally, top songs are chosen by KNN algorithm based on all user's features.
 
-## Installation
-
 ## Credits
 
+- Datasets: <a href="https://www.kaggle.com/datasets/PromptCloudHQ/taylor-swift-song-lyrics-from-all-the-albums">1</a>, <a href="https://www.kaggle.com/datasets/thespacefreak/taylor-swift-spotify-data">2</a>
+- Gif: <a href="https://seegoldendaylight.tumblr.com">1</a>
 
