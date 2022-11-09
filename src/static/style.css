@@ -31,6 +31,10 @@ aside {
 
 @media (min-width: 700px) {
     aside {
+        background-image: url("img/bg.jpg");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
         background-color: #222;
         color: white;
         display: flex;
@@ -94,6 +98,8 @@ h1 {
         text-align: center;
         line-height: 1.7;
         font-size: 1.2em;
+        font-style: italic;
+        mix-blend-mode: difference;
     }
 }
 
@@ -165,23 +171,6 @@ article {
 
 footer {
     height: 40px;
-}
-
-/* - - - - - RATINGS */
-.rating {
-
-    width: 200px;
-    height: 30px;
-    /* padding: 5px 10px; */
-    margin: auto;
-    display: inline-flex;
-    overflow: hidden;
-    unicode-bidi: bidi-override;
-    direction: rtl;
-}
-
-.rating:not(:checked)>input {
-    display: none;
 }
 
 
