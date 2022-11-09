@@ -12,8 +12,8 @@ def home():
 def my_form_post():
     features = [
         request.form['dance'], 
-        request.form['cheer'], 
         request.form['acoustic'], 
+        request.form['cheer'], 
         10]
     features = [(int(x)/10) for x in features]
     try:
