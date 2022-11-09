@@ -52,11 +52,10 @@ def get_top_words(n_count, embedding, dataset):
 
 def predict(example, vectors):
     example = example.lower()
-    if example == 'dance':
-        example = 'dance_y'
     embedding = get_embedding(example)
     top_words = get_top_words(
         n_count=4, embedding=embedding, dataset=song_embeddings)
+    top_words = [x if x != 'dance' else 'dance_y' for x in top_words]
     features = STATIC_FEATURES + top_words
     try:
         with_words = final[features]
@@ -85,5 +84,5 @@ def predict(example, vectors):
 
 
 if __name__ == "__main__":
-    playlist = predict('cat', [0.6, 0.3, 0.2, 1])
+    playlist = predict('dance', [0.6, 0.3, 0.2, 1])
     print(playlist)
