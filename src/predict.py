@@ -52,6 +52,8 @@ def get_top_words(n_count, embedding, dataset):
 
 def predict(example, vectors):
     example = example.lower()
+    if example == 'dance':
+        example = 'dance_y'
     embedding = get_embedding(example)
     top_words = get_top_words(
         n_count=4, embedding=embedding, dataset=song_embeddings)
