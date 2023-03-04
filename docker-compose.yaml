@@ -1,0 +1,13 @@
+version: "3.10"
+
+services:
+  backends:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: playlist-back
+    ports:
+      - 8019:8019
+    stdin_open: true
+    tty: true
+    stop_signal: SIGINT
